@@ -32,6 +32,7 @@ public class UserServiceImpl implements IUserService {
     public void updateUser(User u) {
         User user = userRepository.findById (u.getUserId ()).get ();
         BeanUtils.copyProperties (u,user);
+        userRepository.save (user);
     }
 
     @Override
