@@ -1,8 +1,9 @@
-package com.weltec.grocery.service;
+package com.weltec.grocery.service.impl;
 
 import ch.qos.logback.core.joran.util.beans.BeanUtil;
 import com.weltec.grocery.dao.IUserRepository;
 import com.weltec.grocery.pojo.User;
+import com.weltec.grocery.service.IUserService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -13,7 +14,7 @@ import java.util.List;
  * Author: Liu
  * Date: 2019-07-19 19:22
  */
-public class UserServiceImpl implements IUserService{
+public class UserServiceImpl implements IUserService {
 
     @Autowired
     IUserRepository userRepository;
