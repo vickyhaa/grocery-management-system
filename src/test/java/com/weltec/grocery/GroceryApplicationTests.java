@@ -1,6 +1,8 @@
 package com.weltec.grocery;
 
+import com.weltec.grocery.dao.IProductRepository;
 import com.weltec.grocery.dao.IUserRepository;
+import com.weltec.grocery.pojo.Product;
 import com.weltec.grocery.pojo.User;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -17,10 +19,18 @@ public class GroceryApplicationTests {
     @Autowired
     IUserRepository repository;
 
+    @Autowired
+    IProductRepository productRepository;
+
     @Test
     public void contextLoads() {
         List<User> all = repository.findAll ();
         //System.out.println (all.get (0)+"dddddddddddddddddd");
+    }
+    @Test
+    public void productTest(){
+        Product product = productRepository.findById ("1").get ();
+        System.out.println (product);
     }
 
 }
