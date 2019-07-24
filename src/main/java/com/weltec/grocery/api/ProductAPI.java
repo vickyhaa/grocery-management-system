@@ -31,7 +31,6 @@ public class ProductAPI {
 
     @PostMapping("/api/saveProduct")
     public ResponseVO saveProduct(@RequestBody  Product p){
-        System.out.println (p);
 
        try{
            if(productService.isProductExist (p.getProductName ())){
@@ -47,10 +46,19 @@ public class ProductAPI {
        }
         return ResponseUtils.success ();
     }
-    @PostMapping("/api/update/{Id}")
-    public ResponseVO update(@PathVariable("Id")String Id){
+    @PutMapping("/api/update/{productId}")
+    public ResponseVO update(@PathVariable("productId") String Id, @RequestBody Product p){
+        Product product = productService.findProductById (Id);
+        p.setCreate_time (product.getCreate_time ());
+        BeanUtils.copyProperties (p,product);
+        System.out.println (product);
+        productService.createProduct (product);
+        return ResponseUtils.success ();
+    }
+    @DeleteMapping("/api/deleteProduct/{productId}")
+    public ResponseVO deleteProduct(@PathVariable("productId") String Id){
 
-
+        productService.deleteProductById (Id);
         return ResponseUtils.success ();
     }
 }

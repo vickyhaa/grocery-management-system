@@ -64,7 +64,7 @@ public class UserAPI {
     public ResponseVO findUser(@PathVariable("email") String email){
 
         User u = userService.findByEmail (email);
-        System.out.println (u+"==================");
+
         UserVo newUser= new UserVo ();
         BeanUtils.copyProperties (u,newUser);
 
