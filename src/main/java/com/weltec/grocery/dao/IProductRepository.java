@@ -9,4 +9,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
  * Date: 2019-07-19 19:38
  */
 public interface IProductRepository  extends JpaRepository<Product,String > {
+    Product findByProductName(String name);
 }

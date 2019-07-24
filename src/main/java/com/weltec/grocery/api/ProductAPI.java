@@ -1,6 +1,16 @@
 package com.weltec.grocery.api;
 
-import org.springframework.web.bind.annotation.RestController;
+import com.weltec.grocery.VO.ResponseVO;
+import com.weltec.grocery.pojo.Product;
+import com.weltec.grocery.service.IProductService;
+import com.weltec.grocery.utils.KeyGenerator;
+import com.weltec.grocery.utils.ResponseUtils;
+import org.springframework.beans.BeanUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
+import javax.sound.midi.SoundbankResource;
+import java.util.List;
 
 /**
  * Description:
@@ -9,4 +19,38 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 public class ProductAPI {
+
+    @Autowired
+    IProductService productService;
+
+    @GetMapping("/api/list")
+    public ResponseVO findAll(){
+        List<Product> all = productService.findAll ();
+        return ResponseUtils.success (all);
+    }
+
+    @PostMapping("/api/saveProduct")
+    public ResponseVO saveProduct(@RequestBody  Product p){
+        System.out.println (p);
+
+       try{
+           if(productService.isProductExist (p.getProductName ())){
+               Product newProduct = new Product ();
+               BeanUtils.copyProperties (p,newProduct);
+               newProduct.setUpdate_time (p.getCreate_time ());
+               newProduct.setProductId (KeyGenerator.genUniqueKey ());
+               productService.createProduct (newProduct);
+               return ResponseUtils.success ();
+           }
+       }catch(Exception e){
+            return ResponseUtils.error (400,e.getMessage ());
+       }
+        return ResponseUtils.success ();
+    }
+    @PostMapping("/api/update/{Id}")
+    public ResponseVO update(@PathVariable("Id")String Id){
+
+
+        return ResponseUtils.success ();
+    }
 }

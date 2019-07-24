@@ -14,5 +14,10 @@ public interface IUserService {
    void deleteUser(String id);
    void updateUser(User u);
    void createUser(User u);
+   Boolean isLogin(User u);
+   User findByEmail(String email);
+   Boolean isUserExist(User u);
+
+
 
 }
