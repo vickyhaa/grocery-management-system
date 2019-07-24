@@ -1,11 +1,12 @@
 package com.weltec.grocery.pojo;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
+import org.springframework.data.annotation.Transient;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.persistence.Transient;
 
 /**
  * Description:
@@ -25,7 +26,6 @@ public class User {
     private String address;
     private Integer type=0; //1 as admin 0 as user
     private String password;
-    @Transient
     private String rePassword;
 
 }

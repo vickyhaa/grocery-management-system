@@ -25,12 +25,17 @@ public class GroceryApplicationTests {
     @Test
     public void contextLoads() {
         List<User> all = repository.findAll ();
-        //System.out.println (all.get (0)+"dddddddddddddddddd");
+        System.out.println (all.get (0)+"dddddddddddddddddd");
     }
     @Test
     public void productTest(){
         Product product = productRepository.findById ("1").get ();
         System.out.println (product);
+    }
+    @Test
+    public void userTest(){
+        User u  = repository.findByEmail ("2");
+        System.out.println (u +"ffffffffff");
     }
 
 }

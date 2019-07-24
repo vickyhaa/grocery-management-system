@@ -9,4 +9,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
  * Date: 2019-07-19 18:59
  */
 public interface IUserRepository  extends JpaRepository<User,String> {
+   User findByEmail(String email);
 }

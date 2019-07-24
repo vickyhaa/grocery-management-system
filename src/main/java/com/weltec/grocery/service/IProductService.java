@@ -15,4 +15,7 @@ public interface IProductService {
     void createProduct(Product p);
     void updateProduct(Product p);
     void deleteProductById(String id);
+    Product findByName(Product p);
+    Boolean isProductExist(String name);
+
 }
