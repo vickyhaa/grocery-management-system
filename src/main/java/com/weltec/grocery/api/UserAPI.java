@@ -37,7 +37,7 @@ public class UserAPI {
 
     @PostMapping("/api/register")
     public ResponseVO register(@RequestBody User u){
-        System.out.println (u+"      coming11111111111111111");
+        // 
         try{
             boolean isExist = userService.isUserExist (u);
             User newUser=new User();
