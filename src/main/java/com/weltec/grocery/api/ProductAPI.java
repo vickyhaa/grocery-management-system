@@ -52,7 +52,7 @@ public class ProductAPI {
         Product product = productService.findProductById (Id);
         p.setCreate_time (product.getCreate_time ());
         BeanUtils.copyProperties (p,product);
-
+        System.out.println (p);
         productService.createProduct (product);
         return ResponseUtils.success ();
     }
