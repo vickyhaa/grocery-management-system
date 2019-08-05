@@ -31,7 +31,7 @@ public class ProductAPI {
 
     @PostMapping("/api/saveProduct")
     public ResponseVO saveProduct(@RequestBody  Product p){
-
+        System.out.println (p);
        try{
            if(productService.isProductExist (p.getProductName ())){
                Product newProduct = new Product ();
