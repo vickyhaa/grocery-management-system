@@ -26,6 +26,7 @@ public class UserAPI {
 
     @PostMapping("/api/login")
     public ResponseVO login(@RequestBody User u){
+        System.out.println (u);
         try{
             if(userService.isLogin (u))
                 return ResponseUtils.success ();
@@ -64,7 +65,6 @@ public class UserAPI {
     }
     @GetMapping("/api/findUser/{email}")
     public ResponseVO findUser(@PathVariable("email") String email){
-        System.out.println (email);
         User u = userService.findByEmail (email);
 
         UserVo newUser= new UserVo ();
