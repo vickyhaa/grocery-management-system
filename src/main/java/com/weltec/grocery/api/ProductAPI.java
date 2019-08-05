@@ -48,6 +48,7 @@ public class ProductAPI {
     }
     @PutMapping("/api/update/{productId}")
     public ResponseVO update(@PathVariable("productId") String Id, @RequestBody Product p){
+        System.out.println (p);
         Product product = productService.findProductById (Id);
         p.setCreate_time (product.getCreate_time ());
         BeanUtils.copyProperties (p,product);
@@ -57,7 +58,7 @@ public class ProductAPI {
     }
     @DeleteMapping("/api/deleteProduct/{productId}")
     public ResponseVO deleteProduct(@PathVariable("productId") String Id){
-
+        System.out.println (Id);
         productService.deleteProductById (Id);
         return ResponseUtils.success ();
     }
