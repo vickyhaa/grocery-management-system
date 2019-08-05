@@ -62,7 +62,7 @@ public class UserAPI {
     }
     @GetMapping("/api/findUser/{email}")
     public ResponseVO findUser(@PathVariable("email") String email){
-
+        System.out.println (email);
         User u = userService.findByEmail (email);
 
         UserVo newUser= new UserVo ();
