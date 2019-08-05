@@ -37,7 +37,7 @@ public class UserAPI {
 
     @PostMapping("/api/register")
     public ResponseVO register(@RequestBody User u){
-        System.out.println (u);
+        
         try{
             boolean isExist = userService.isUserExist (u);
             User newUser=new User();
@@ -62,7 +62,7 @@ public class UserAPI {
     }
     @GetMapping("/api/findUser/{email}")
     public ResponseVO findUser(@PathVariable("email") String email){
-        System.out.println (email);
+
         User u = userService.findByEmail (email);
 
         UserVo newUser= new UserVo ();
