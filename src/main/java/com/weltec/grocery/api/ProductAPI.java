@@ -57,7 +57,7 @@ public class ProductAPI {
     }
     @DeleteMapping("/api/deleteProduct/{productId}")
     public ResponseVO deleteProduct(@PathVariable("productId") String Id){
-
+        System.out.println (Id);
         productService.deleteProductById (Id);
         return ResponseUtils.success ();
     }
