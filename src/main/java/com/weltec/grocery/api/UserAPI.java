@@ -41,8 +41,10 @@ public class UserAPI {
         try{
             boolean isExist = userService.isUserExist (u);
             User newUser=new User();
+            System.out.println (u);
             if(isExist){
                 BeanUtils.copyProperties (u,newUser);
+                System.out.println (u);
                 newUser.setUserId (KeyGenerator.genUniqueKey ());
                 userService.createUser (newUser);
                 return ResponseUtils.success ();
