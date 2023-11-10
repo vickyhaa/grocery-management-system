@@ -1,10 +1,10 @@
 
 spring:
   datasource:
-    url: jdbc:mysql://localhost:3306/grocery?useUnicode=true&characterEncoding=utf8
+    url: jdbc:mysql://localhost:3306/grocery?useUnicode=true&characterEncoding=utf8&serverTimezone=UTC
     driverClassName: com.mysql.cj.jdbc.Driver
     username: root
-    password: l8036316
+    password:
   jpa:
     hibernate:
       ddl-auto: update
